@@ -4,5 +4,14 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
+    "java.configuration.runtimes": [
+        {
+          "name": "JavaSE-21",
+          "path": "/usr/lib/jvm/java-21-openjdk-21.0.3.0.9-1.fc40.x86_64",
+          "default": true
+        }
+      ],
+      
     "java.jdt.ls.java.home": ""
+
 }
