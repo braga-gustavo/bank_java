@@ -1,13 +1,17 @@
 package entity;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Account {
 
     private String accountClient;
     private Integer accountNumber;
     private Integer accountAgency;
-    private Double accountBalance;
+    private BigDecimal accountBalance;
 
-    public Account(Integer accountNumber, Integer accountAgency, Double accountBalance, String accountClient) {
+    public Account(Integer accountNumber, Integer accountAgency, BigDecimal accountBalance, String accountClient) {
         this.accountNumber = accountNumber;
         this.accountAgency = accountAgency;
         this.accountBalance = accountBalance;
@@ -33,11 +37,12 @@ public class Account {
         this.accountAgency = accountAgency;
     }
 
-    public Double getAccountBalance() {
-        return accountBalance;
+    public String getAccountBalance() {
+        return formatCurrency(accountBalance);
+        
     }
 
-    public void setAccountBalance(Double accountBalance) {
+    public void setAccountBalance(BigDecimal accountBalance) {
         this.accountBalance = accountBalance;
     }
 
@@ -47,6 +52,13 @@ public class Account {
 
     public void setAccountClient(String accountClient) {
         this.accountClient = accountClient;
+    }
+
+    private String formatCurrency(BigDecimal accountBalanceToFormat){
+        Locale br = new Locale.Builder().setLanguage("pt").setRegion("BR").build();
+        NumberFormat nf = NumberFormat.getCurrencyInstance(br);
+        String accountBalanceFormatted = nf.format(accountBalanceToFormat);
+        return accountBalanceFormatted;
     }
 
 }

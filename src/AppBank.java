@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 import entity.Account;
@@ -22,7 +23,7 @@ public class AppBank {
         account1.setAccountAgency(accountAgencyNumber);
 
         System.out.println("Please insert account balance: ");
-        Double accountBalanceScan = scanner.nextDouble();
+        BigDecimal accountBalanceScan = scanner.nextBigDecimal();
         account1.setAccountBalance(accountBalanceScan);
 
         System.out.println("Hello, ".concat(account1.getAccountClient())
@@ -31,9 +32,9 @@ public class AppBank {
                 .concat(String.valueOf(account1.getAccountNumber()))
                 .concat(" and your agency ")
                 .concat(String.valueOf(account1.getAccountAgency()))
-                .concat("your balance ")
-                .concat(String.valueOf(account1.getAccountBalance()))
-                .concat(" is ready for whitdraw"));
+                .concat(" your balance ")
+                .concat(account1.getAccountBalance())
+                .concat(" is ready for withdraw"));
 
         scanner.close();
 
