@@ -23,11 +23,17 @@ public class AppBank {
 
         System.out.println("Please insert account balance: ");
         Double accountBalanceScan = scanner.nextDouble();
-        account1.setAccountBalance(accountBalanceScan); 
+        account1.setAccountBalance(accountBalanceScan);
 
-        System.out.println("Hello, " + account1 .getAccountClient() + ". Thank you for creating an account in our bank." +
-         " Your account number is " + account1.getAccountNumber() + " and your agency is " + account1.getAccountAgency()
-          + ", your balance " + account1.getAccountBalance() + " is ready for whitdraw");
+        System.out.println("Hello, ".concat(account1.getAccountClient())
+                .concat(". Thank you for creating an account in our bank.")
+                .concat(" Your account number is ")
+                .concat(String.valueOf(account1.getAccountNumber()))
+                .concat(" and your agency ")
+                .concat(String.valueOf(account1.getAccountAgency()))
+                .concat("your balance ")
+                .concat(String.valueOf(account1.getAccountBalance()))
+                .concat(" is ready for whitdraw"));
 
         scanner.close();
 
